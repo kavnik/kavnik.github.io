@@ -7,27 +7,44 @@
     <script type="text/javascript">goog.require("mandala.app");</script>
 </head>
 <body>
-<script type="text/javascript">
-    function baseConvolution() {
-        var inputSeq = document.querySelector('input[name="inputseq"]').value;
-        inputSeq = '[' + inputSeq + ']';
-        var vector = mandala.app.str2clj(inputSeq);
 
-        var result = mandala.app.add_conv_to_length_return_steps(vector, 1);
+    <h1>Mandala counter</h1>
 
-        document.querySelector('#output1').innerHTML = mandala.app.clj2str(result);
-    }
-</script>
+    <h2>Основная свертка</h2>
+        <script type="text/javascript">
+            function baseConvolution() {
+                var inputSeq = document.querySelector('input[name="inputBaseConvolution"]').value;
+                inputSeq = '[' + inputSeq + ']';
+                var vector = mandala.app.str2clj(inputSeq);
 
-<h1>Mandala counter</h1>
-<div>Последовательность цифр через пробел:</div>
-<input type="text" name="inputseq" value="1 2 3 4 5 6 7 8">
-<input type="button" onclick="baseConvolution()" value="Посчитать">
-<div>Результат вычислений:</div>
-<div id="output1">n/a</div>
+                var result = mandala.app.add_conv_to_length_return_steps(vector, 1);
 
-<script type="text/javascript">
-    baseConvolution();
-</script>
+                document.querySelector('#outputBaseConvolution').innerHTML = mandala.app.clj2str(result);
+            }
+        </script>
+        <div>Последовательность цифр через пробел:</div>
+        <input type="text" name="inputBaseConvolution" value="1 2 3 4 5 6 7">
+        <input type="button" onclick="baseConvolution()" value="Посчитать">
+        <div>Результат вычислений:</div>
+        <div id="outputBaseConvolution">(нажмите "Посчитать")</div>
+
+    <h2>Андреевский крест 4</h2>
+        <script type="text/javascript">
+            function countAndrew4() {
+                var inputSeq = document.querySelector('input[name="inputAndrew4"]').value;
+                inputSeq = '[' + inputSeq + ']';
+                var vector = mandala.app.str2clj(inputSeq);
+
+                var result = mandala.app.mandala_andrew_4(vector);
+
+                document.querySelector('#outputAndrew4').innerHTML = mandala.app.clj2str(result);
+            }
+        </script>
+        <div>Последовательность цифр через пробел:</div>
+        <input type="text" name="inputAndrew4" value="1 2 3 4">
+        <input type="button" onclick="countAndrew4()" value="Посчитать">
+        <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
+        <div id="outputAndrew4">(нажмите "Посчитать")</div>
+
 </body>
 </html>

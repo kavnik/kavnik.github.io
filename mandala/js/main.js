@@ -31914,6 +31914,9 @@ mandala.app.add = function mandala$app$add(x, y) {
     return mandala.app.base_add - 9;
   }
 };
+mandala.app.add_two_vectors_base_parts = function mandala$app$add_two_vectors_base_parts(v1, v2, base_number) {
+  return cljs.core.vec.call(null, cljs.core.map.call(null, mandala.app.add, cljs.core.subvec.call(null, v1, 0, base_number), cljs.core.subvec.call(null, v2, 0, base_number)));
+};
 mandala.app.str2clj = function mandala$app$str2clj(value) {
   return cljs.reader.read_string.call(null, value);
 };
@@ -31974,3 +31977,38 @@ mandala.app.add_conv_to_length_return_steps.cljs$core$IFn$_invoke$arity$3 = func
   }
 };
 mandala.app.add_conv_to_length_return_steps.cljs$lang$maxFixedArity = 3;
+mandala.app.mandala_andrew_4 = function mandala$app$mandala_andrew_4(base) {
+  var cur_step = new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 0)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 1), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 2), base.call(null, 3), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 
+  4, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 3), base.call(null, 2), base.call(null, 1), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [mandala.app.add.call(null, base.call(null, 3), base.call(null, 2)), mandala.app.add.call(null, base.call(null, 2), base.call(null, 3)), mandala.app.add.call(null, base.call(null, 1), base.call(null, 0)), mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)), mandala.app.add.call(null, 
+  mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)), mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)))], null)], null);
+  while (true) {
+    var step_tail = cljs.core.vec.call(null, cljs.core.take_last.call(null, 2, cljs.core.last.call(null, cur_step)));
+    if (cljs.core._EQ_.call(null, step_tail.call(null, 0), base.call(null, 1)) && cljs.core._EQ_.call(null, step_tail.call(null, 1), base.call(null, 0))) {
+      return cur_step;
+    } else {
+      var G__6343 = function() {
+        var step_tail__$1 = cljs.core.take_last.call(null, 2, cur_step);
+        var base_number = 4;
+        return cljs.core.conj.call(null, cur_step, function() {
+          var vToSize = mandala.app.add_two_vectors_base_parts.call(null, cljs.core.first.call(null, step_tail__$1), cljs.core.last.call(null, step_tail__$1), base_number);
+          var size = cljs.core.count.call(null, cljs.core.last.call(null, step_tail__$1)) + 1;
+          while (true) {
+            if (cljs.core.count.call(null, vToSize) >= size) {
+              return vToSize;
+            } else {
+              var G__6344 = cljs.core.conj.call(null, vToSize, mandala.app.add.call(null, cljs.core.first.call(null, cljs.core.take_last.call(null, 2, vToSize)), cljs.core.last.call(null, vToSize)));
+              var G__6345 = size;
+              vToSize = G__6344;
+              size = G__6345;
+              continue;
+            }
+            break;
+          }
+        }());
+      }();
+      cur_step = G__6343;
+      continue;
+    }
+    break;
+  }
+};
