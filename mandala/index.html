@@ -5,6 +5,29 @@
     <title></title>
     <script src="js/main.js" type="text/javascript"></script>
     <script type="text/javascript">goog.require("mandala.app");</script>
+
+    <style>
+        .mandala-output {}
+        .mandala-row {}
+        .mandala-cell {
+            display: inline-block;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            color: black;
+        }
+        .mandala-cell-0 {background: white;}
+        .mandala-cell-1 {background: red;}
+        .mandala-cell-2 {background: blue;}
+        .mandala-cell-3 {background: green;}
+        .mandala-cell-4 {background: yellow;}
+        .mandala-cell-5 {background: cyan;}
+        .mandala-cell-6 {background: turquoise;}
+        .mandala-cell-7 {background: pink;}
+        .mandala-cell-8 {background: orange;}
+        .mandala-cell-9 {background: purple;}
+
+    </style>
 </head>
 <body>
 
@@ -37,7 +60,8 @@
 
                 var result = mandala.app.mandala_andrew_4(vector);
 
-                document.querySelector('#outputAndrew4').innerHTML = mandala.app.clj2str(result);
+                //document.querySelector('#outputAndrew4').innerHTML = mandala.app.clj2str(result);
+                mandala.app.output_mandala(result, '#outputAndrew4');
             }
         </script>
         <div>Последовательность цифр через пробел:</div>
@@ -45,6 +69,25 @@
         <input type="button" onclick="countAndrew4()" value="Посчитать">
         <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
         <div id="outputAndrew4">(нажмите "Посчитать")</div>
+
+    <h2>Андреевский крест 5</h2>
+        <script type="text/javascript">
+            function countAndrew5() {
+                var inputSeq = document.querySelector('input[name="inputAndrew5"]').value;
+                inputSeq = '[' + inputSeq + ']';
+                var vector = mandala.app.str2clj(inputSeq);
+
+                var result = mandala.app.mandala_andrew_5(vector);
+
+                //document.querySelector('#outputAndrew5').innerHTML = mandala.app.clj2str(result);
+                mandala.app.output_mandala(result, '#outputAndrew5');
+            }
+        </script>
+        <div>Последовательность цифр через пробел:</div>
+        <input type="text" name="inputAndrew5" value="1 2 3 4 5">
+        <input type="button" onclick="countAndrew5()" value="Посчитать">
+        <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
+        <div id="outputAndrew5">(нажмите "Посчитать")</div>
 
 </body>
 </html>
