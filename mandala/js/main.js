@@ -34091,6 +34091,48 @@ mandala.app.output_mandala = function mandala$app$output_mandala(mandala__$1, ou
   }
   return dommy.core.replace_contents_BANG_.call(null, document.querySelector(dommy.core.selector.call(null, output_selector)), container);
 };
+mandala.app.output_mandala_svg = function mandala$app$output_mandala_svg(mandala__$1, output_selector, group_id) {
+  var mandala_size = cljs.core.count.call(null, mandala__$1);
+  var cell_size = 20;
+  var container = dommy.core.add_class_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "svg"), new cljs.core.Keyword(null, "width", "width", -384071477), mandala_size * cell_size * 2, new cljs.core.Keyword(null, "height", "height", 1025178622), mandala_size * cell_size * 2, new cljs.core.Keyword(null, "xmlns", "xmlns", -1862095571), "http://www.w3.org/2000/svg", new cljs.core.Keyword(null, "xmlns:xlink", "xmlns:xlink", -316591054), 
+  "http://www.w3.org/1999/xlink", new cljs.core.Keyword(null, "version", "version", 425292698), "1.1"), "mandala-output");
+  var group = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "g");
+  var symbol = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "symbol");
+  var defs = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "defs");
+  var n__5161__auto___6619 = mandala_size;
+  var row_index_6620 = 0;
+  while (true) {
+    if (row_index_6620 < n__5161__auto___6619) {
+      var n__5161__auto___6621__$1 = mandala_size;
+      var col_index_6622 = 0;
+      while (true) {
+        if (col_index_6622 < n__5161__auto___6621__$1) {
+          dommy.core.append_BANG_.call(null, group, dommy.core.add_class_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), col_index_6622 * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_6620 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, 
+          new cljs.core.Keyword(null, "stroke", "stroke", 1741823555), "black", new cljs.core.Keyword(null, "stroke-width", "stroke-width", 716836435), 1), [cljs.core.str("mandala-cell-"), cljs.core.str(mandala.app.get_mandala_cell.call(null, mandala__$1, col_index_6622, mandala_size - 1 - row_index_6620))].join("")));
+          var G__6623 = col_index_6622 + 1;
+          col_index_6622 = G__6623;
+          continue;
+        } else {
+        }
+        break;
+      }
+      var G__6624 = row_index_6620 + 1;
+      row_index_6620 = G__6624;
+      continue;
+    } else {
+    }
+    break;
+  }
+  dommy.core.append_BANG_.call(null, container, dommy.core.append_BANG_.call(null, defs, dommy.core.append_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, symbol, new cljs.core.Keyword(null, "id", "id", -1388402092), group_id), group)));
+  dommy.core.append_BANG_.call(null, container, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), mandala_size * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), 0));
+  dommy.core.append_BANG_.call(null, container, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), 0, new cljs.core.Keyword(null, "y", "y", -1757859776), 0, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("translate("), cljs.core.str(mandala_size * 
+  cell_size), cljs.core.str(","), cljs.core.str(mandala_size * cell_size), cljs.core.str(") rotate(90 "), cljs.core.str(mandala_size * cell_size / 2), cljs.core.str(" "), cljs.core.str(mandala_size * cell_size / 2), cljs.core.str(" )")].join("")));
+  dommy.core.append_BANG_.call(null, container, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), 0, new cljs.core.Keyword(null, "y", "y", -1757859776), 0, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("translate("), cljs.core.str(0), 
+  cljs.core.str(","), cljs.core.str(mandala_size * cell_size), cljs.core.str(") rotate(180 "), cljs.core.str(mandala_size * cell_size / 2), cljs.core.str(" "), cljs.core.str(mandala_size * cell_size / 2), cljs.core.str(" )")].join("")));
+  dommy.core.append_BANG_.call(null, container, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), 0, new cljs.core.Keyword(null, "y", "y", -1757859776), 0, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("translate("), cljs.core.str(0), 
+  cljs.core.str(","), cljs.core.str(0), cljs.core.str(") rotate(270 "), cljs.core.str(mandala_size * cell_size / 2), cljs.core.str(" "), cljs.core.str(mandala_size * cell_size / 2), cljs.core.str(" )")].join("")));
+  return dommy.core.replace_contents_BANG_.call(null, document.querySelector(dommy.core.selector.call(null, output_selector)), container);
+};
 mandala.app.tmp = function mandala$app$tmp() {
   return dommy.core.append_BANG_.call(null, document.body, dommy.core.set_text_BANG_.call(null, dommy.core.create_element.call(null, "div"), "Hey-ho!"));
 };

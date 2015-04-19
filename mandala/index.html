@@ -16,16 +16,22 @@
             height: 20px;
             color: black;
         }
-        .mandala-cell-0 {background: white;}
-        .mandala-cell-1 {background: red;}
-        .mandala-cell-2 {background: blue;}
-        .mandala-cell-3 {background: green;}
-        .mandala-cell-4 {background: yellow;}
-        .mandala-cell-5 {background: cyan;}
-        .mandala-cell-6 {background: turquoise;}
-        .mandala-cell-7 {background: pink;}
-        .mandala-cell-8 {background: orange;}
-        .mandala-cell-9 {background: purple;}
+        .mandala-cell-0 {background: white; fill: white;}
+        .mandala-cell-1 {background: red; fill: red;}
+        .mandala-cell-2 {background: blue; fill: blue;}
+        .mandala-cell-3 {background: green; fill: green;}
+        .mandala-cell-4 {background: yellow; fill: yellow;}
+        .mandala-cell-5 {background: cyan; fill: cyan;}
+        .mandala-cell-6 {background: turquoise; fill: turquoise;}
+        .mandala-cell-7 {background: pink; fill: pink;}
+        .mandala-cell-8 {background: orange; fill: orange;}
+        .mandala-cell-9 {background: purple; fill: purple;}
+
+        #outputAndrew4 {margin: 30px}
+        #outputAndrew4svg {margin: 30px}
+
+        #outputAndrew5 {margin: 30px}
+        #outputAndrew5svg {margin: 30px}
 
     </style>
 </head>
@@ -62,6 +68,20 @@
 
                 //document.querySelector('#outputAndrew4').innerHTML = mandala.app.clj2str(result);
                 mandala.app.output_mandala(result, '#outputAndrew4');
+                mandala.app.output_mandala_svg(result, '#outputAndrew4svg', 'a4svg-groupt');
+
+                //tmp hack
+                [].forEach.call(
+                    document.querySelectorAll('#outputAndrew4svg svg use'),
+                    function (el) {
+                        el.setAttributeNS(
+                            'http://www.w3.org/1999/xlink',
+                            'href',
+                            el.getAttribute('xlink:href')
+                        );
+                    }
+                );
+
             }
         </script>
         <div>Последовательность цифр через пробел:</div>
@@ -69,6 +89,7 @@
         <input type="button" onclick="countAndrew4()" value="Посчитать">
         <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
         <div id="outputAndrew4">(нажмите "Посчитать")</div>
+        <div id="outputAndrew4svg">(нажмите "Посчитать")</div>
 
     <h2>Андреевский крест 5</h2>
         <script type="text/javascript">
@@ -81,13 +102,26 @@
 
                 //document.querySelector('#outputAndrew5').innerHTML = mandala.app.clj2str(result);
                 mandala.app.output_mandala(result, '#outputAndrew5');
+                mandala.app.output_mandala_svg(result, '#outputAndrew5svg', 'a5svg-groupt');
+
+                //tmp hack
+                [].forEach.call(
+                    document.querySelectorAll('#outputAndrew5svg svg use'),
+                    function (el) {
+                        el.setAttributeNS(
+                            'http://www.w3.org/1999/xlink',
+                            'href',
+                            el.getAttribute('xlink:href')
+                        );
+                    }
+                );
             }
         </script>
         <div>Последовательность цифр через пробел:</div>
         <input type="text" name="inputAndrew5" value="1 2 3 4 5">
         <input type="button" onclick="countAndrew5()" value="Посчитать">
         <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
-        <div id="outputAndrew5">(нажмите "Посчитать")</div>
-
+        <div id="outputAndrew5">HTML (нажмите "Посчитать")</div>
+        <div id="outputAndrew5svg" >SVG (нажмите "Посчитать")</div>
 </body>
 </html>
