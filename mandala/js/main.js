@@ -34091,6 +34091,7 @@ mandala.app.output_mandala = function mandala$app$output_mandala(mandala__$1, ou
   }
   return dommy.core.replace_contents_BANG_.call(null, document.querySelector(dommy.core.selector.call(null, output_selector)), container);
 };
+mandala.app.digit_color_map = cljs.core.PersistentHashMap.fromArrays([0, 7, 1, 4, 6, 3, 2, 9, 5, 8], ["white", "pink", "red", "yellow", "turquoise", "green", "blue", "purple", "cyan", "orange"]);
 mandala.app.output_mandala_svg = function mandala$app$output_mandala_svg(mandala__$1, output_selector, group_id) {
   var mandala_size = cljs.core.count.call(null, mandala__$1);
   var cell_size = 20;
@@ -34107,8 +34108,8 @@ mandala.app.output_mandala_svg = function mandala$app$output_mandala_svg(mandala
       var col_index_6622 = 0;
       while (true) {
         if (col_index_6622 < n__5161__auto___6621__$1) {
-          dommy.core.append_BANG_.call(null, group, dommy.core.add_class_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), col_index_6622 * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_6620 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, 
-          new cljs.core.Keyword(null, "stroke", "stroke", 1741823555), "black", new cljs.core.Keyword(null, "stroke-width", "stroke-width", 716836435), 1), [cljs.core.str("mandala-cell-"), cljs.core.str(mandala.app.get_mandala_cell.call(null, mandala__$1, col_index_6622, mandala_size - 1 - row_index_6620))].join("")));
+          dommy.core.append_BANG_.call(null, group, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), col_index_6622 * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_6620 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, new cljs.core.Keyword(null, "fill", 
+          "fill", 883462889), cljs.core.get.call(null, mandala.app.digit_color_map, mandala.app.get_mandala_cell.call(null, mandala__$1, col_index_6622, mandala_size - 1 - row_index_6620)), new cljs.core.Keyword(null, "stroke", "stroke", 1741823555), "black", new cljs.core.Keyword(null, "stroke-width", "stroke-width", 716836435), 1));
           var G__6623 = col_index_6622 + 1;
           col_index_6622 = G__6623;
           continue;
