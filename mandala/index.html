@@ -75,6 +75,7 @@
         <input type="button" onclick="baseConvolution()" value="Посчитать">
         <div>Результат вычислений:</div>
         <div id="outputBaseConvolution">(нажмите "Посчитать")</div>
+        <div id="outputBaseConvolutionSvg">(нажмите "Посчитать")</div>
 
     <h2>Андреевский крест 4</h2>
         <script type="text/javascript">
@@ -153,5 +154,45 @@
         <div id="outputAndrew5">(нажмите "Посчитать")</div>
         <div id="outputAndrew5svg" ></div>
         <div id="outputAndrew5svgLink" ></div>
+
+    <h2>N-угольная манадала (1-ый способ)</h2>
+        <script type="text/javascript">
+            function countSectors() {
+                var inputSeq = document.querySelector('input[name="inputSectors"]').value;
+                var inputSeqNum = document.querySelector('input[name="inputSectorsNumber"]').value;
+                inputSeq = '[' + inputSeq + ']';
+                var vector = mandala.app.str2clj(inputSeq);
+
+                var result = mandala.app.mandala_sectors(vector);
+
+                document.querySelector('#outputSectors').innerHTML = mandala.app.clj2str(result);
+                mandala.app.output_sectors_mandala(result, inputSeqNum, '#outputSectorsSvg', 'a5svg-groupt');
+
+
+                $("#outputSectorsSvgLink").html(
+                    getLinkBySvgString($('#outputSectorsSvg').html(), 'angle_' + inputSeqNum)
+                );
+
+                //tmp hack
+                [].forEach.call(
+                    document.querySelectorAll('#outputSectorsSvg svg use'),
+                    function (el) {
+                        el.setAttributeNS(
+                            'http://www.w3.org/1999/xlink',
+                            'href',
+                            el.getAttribute('xlink:href')
+                        );
+                    }
+                );
+            }
+        </script>
+        <div>Последовательность цифр через пробел:</div>
+        <input type="text" name="inputSectors" value="1 2 3 4 5 6 7 8">
+        <input type="text" name="inputSectorsNumber" value="8">
+        <input type="button" onclick="countSectors()" value="Посчитать">
+        <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
+        <div id="outputSectors">(нажмите "Посчитать")</div>
+        <div id="outputSectorsSvg" ></div>
+        <div id="outputSectorsSvgLink" ></div>
 </body>
 </html>
