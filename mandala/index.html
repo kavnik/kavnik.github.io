@@ -194,5 +194,46 @@
         <div id="outputSectors">(нажмите "Посчитать")</div>
         <div id="outputSectorsSvg" ></div>
         <div id="outputSectorsSvgLink" ></div>
+
+
+    <h2>N-угольная манадала (2-ой способ)</h2>
+    <script type="text/javascript">
+            function countSectors2() {
+                var inputSeq = document.querySelector('input[name="inputSectors2"]').value;
+                var inputSeqNum = document.querySelector('input[name="inputSectorsNumber2"]').value;
+                inputSeq = '[' + inputSeq + ']';
+                var vector = mandala.app.str2clj(inputSeq);
+
+                var result = mandala.app.mandala_sectors_2(vector);
+
+                document.querySelector('#outputSectors2').innerHTML = mandala.app.clj2str(result);
+                mandala.app.output_sectors_mandala(vector, result, inputSeqNum, '#outputSectorsSvg2', 'a5svg-groupt');
+
+
+                $("#outputSectorsSvgLink2").html(
+                    getLinkBySvgString($('#outputSectorsSvg2').html(), 'angle2_' + inputSeqNum)
+                );
+
+                //tmp hack
+                [].forEach.call(
+                    document.querySelectorAll('#outputSectorsSvg2 svg use'),
+                    function (el) {
+                        el.setAttributeNS(
+                            'http://www.w3.org/1999/xlink',
+                            'href',
+                            el.getAttribute('xlink:href')
+                        );
+                    }
+                );
+            }
+        </script>
+    <div>Последовательность цифр через пробел:</div>
+    <input type="text" name="inputSectors2" value="1 2 3 4 5 6 7 8">
+    <input type="text" name="inputSectorsNumber2" value="8">
+    <input type="button" onclick="countSectors2()" value="Посчитать">
+    <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
+    <div id="outputSectors2">(нажмите "Посчитать")</div>
+    <div id="outputSectorsSvg2" ></div>
+    <div id="outputSectorsSvgLink2" ></div>
 </body>
 </html>

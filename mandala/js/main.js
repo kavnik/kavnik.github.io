@@ -34004,7 +34004,7 @@ mandala.app.add_conv_to_length_return_steps.cljs$lang$maxFixedArity = 3;
 mandala.app.digit_color_map = cljs.core.PersistentHashMap.fromArrays([0, 7, 1, 4, 6, 3, 2, 9, 5, 8], ["white", "pink", "red", "yellow", "turquoise", "green", "blue", "purple", "cyan", "orange"]);
 mandala.app.get_color_num_by_digit = function mandala$app$get_color_num_by_digit(digit, shift) {
   var color_num_tmp = shift - 1 + digit;
-  var color_num = color_num_tmp > 9 ? color_num_tmp - 9 : color_num_tmp;
+  var color_num = cljs.core._EQ_.call(null, 0, digit) ? 0 : color_num_tmp > 9 ? color_num_tmp - 9 : color_num_tmp;
   return color_num;
 };
 mandala.app.get_core_of_mandala_andrew4 = function mandala$app$get_core_of_mandala_andrew4(base) {
@@ -34144,6 +34144,194 @@ mandala.app.output_mandala_svg = function mandala$app$output_mandala_svg(mandala
 mandala.app.mandala_sectors = function mandala$app$mandala_sectors(base) {
   return cljs.core.vec.call(null, cljs.core.rseq.call(null, mandala.app.add_conv_to_length_return_steps.call(null, cljs.core.apply.call(null, cljs.core.conj, base, cljs.core.rseq.call(null, base)), 1)));
 };
+mandala.app.a_set = function mandala$app$a_set(array, row_n, pos_n, value) {
+  return cljs.core.assoc_BANG_.call(null, cljs.core.get.call(null, array, row_n), pos_n, value);
+};
+mandala.app.a_get = function mandala$app$a_get(array, row_n, pos_n) {
+  return cljs.core.get.call(null, cljs.core.get.call(null, array, row_n), pos_n);
+};
+mandala.app.mandala_sectors_2 = function mandala$app$mandala_sectors_2(base) {
+  var base_size = 8;
+  var size = 2 * base_size;
+  var mandala__$1 = cljs.core.transient$.call(null, cljs.core.PersistentVector.EMPTY);
+  var n__5161__auto___6625 = size;
+  var n_6626 = 0;
+  while (true) {
+    if (n_6626 < n__5161__auto___6625) {
+      cljs.core.assoc_BANG_.call(null, mandala__$1, n_6626, function() {
+        var row = cljs.core.transient$.call(null, cljs.core.PersistentVector.EMPTY);
+        var row_size = n_6626 + 1;
+        var n__5161__auto___6627__$1 = row_size;
+        var row_n_6628 = 0;
+        while (true) {
+          if (row_n_6628 < n__5161__auto___6627__$1) {
+            cljs.core.assoc_BANG_.call(null, row, row_n_6628, 0);
+            var G__6629 = row_n_6628 + 1;
+            row_n_6628 = G__6629;
+            continue;
+          } else {
+          }
+          break;
+        }
+        return row;
+      }());
+      var G__6630 = n_6626 + 1;
+      n_6626 = G__6630;
+      continue;
+    } else {
+    }
+    break;
+  }
+  var n__5161__auto___6631 = base_size;
+  var n_6632 = 0;
+  while (true) {
+    if (n_6632 < n__5161__auto___6631) {
+      mandala.app.a_set.call(null, mandala__$1, n_6632, 0, cljs.core.get.call(null, base, n_6632));
+      mandala.app.a_set.call(null, mandala__$1, n_6632, n_6632, cljs.core.get.call(null, base, n_6632));
+      mandala.app.a_set.call(null, mandala__$1, size - 1 - n_6632, 0, cljs.core.get.call(null, base, n_6632));
+      mandala.app.a_set.call(null, mandala__$1, size - 1 - n_6632, size - 1 - n_6632, cljs.core.get.call(null, base, n_6632));
+      mandala.app.a_set.call(null, mandala__$1, size - 1, n_6632, cljs.core.get.call(null, base, n_6632));
+      mandala.app.a_set.call(null, mandala__$1, size - 1, size - 1 - n_6632, cljs.core.get.call(null, base, n_6632));
+      var G__6633 = n_6632 + 1;
+      n_6632 = G__6633;
+      continue;
+    } else {
+    }
+    break;
+  }
+  var n__5161__auto___6634 = base_size - 2;
+  var n_6635 = 0;
+  while (true) {
+    if (n_6635 < n__5161__auto___6634) {
+      var number_6636 = n_6635 + 1;
+      var row_n_6637 = n_6635 + 2;
+      var n__5161__auto___6638__$1 = number_6636;
+      var pos_n_6639 = 0;
+      while (true) {
+        if (pos_n_6639 < n__5161__auto___6638__$1) {
+          var rn_6640 = row_n_6637;
+          var pn_6641 = 1 + pos_n_6639;
+          mandala.app.a_set.call(null, mandala__$1, rn_6640, pn_6641, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_6640 - 1, pn_6641), mandala.app.a_get.call(null, mandala__$1, rn_6640 - 1, pn_6641 - 1)));
+          var G__6642 = pos_n_6639 + 1;
+          pos_n_6639 = G__6642;
+          continue;
+        } else {
+        }
+        break;
+      }
+      var number_6643 = n_6635 + 1;
+      var row_n_6644 = size - (1 + 1 + n_6635);
+      var n__5161__auto___6645__$1 = number_6643;
+      var pos_n_6646 = 0;
+      while (true) {
+        if (pos_n_6646 < n__5161__auto___6645__$1) {
+          var rn_6647 = row_n_6644 + pos_n_6646;
+          var pn_6648 = 1 + pos_n_6646;
+          mandala.app.a_set.call(null, mandala__$1, rn_6647, pn_6648, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_6647, pn_6648 - 1), mandala.app.a_get.call(null, mandala__$1, rn_6647 + 1, pn_6648)));
+          var G__6649 = pos_n_6646 + 1;
+          pos_n_6646 = G__6649;
+          continue;
+        } else {
+        }
+        break;
+      }
+      var number_6650 = n_6635 + 1;
+      var row_n_6651 = size - (1 + 1 + n_6635);
+      var n__5161__auto___6652__$1 = number_6650;
+      var pos_n_6653 = 0;
+      while (true) {
+        if (pos_n_6653 < n__5161__auto___6652__$1) {
+          var rn_6654 = row_n_6651 + pos_n_6653;
+          var pn_6655 = size - (2 + number_6650);
+          mandala.app.a_set.call(null, mandala__$1, rn_6654, pn_6655, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_6654, pn_6655 + 1), mandala.app.a_get.call(null, mandala__$1, rn_6654 + 1, pn_6655 + 1)));
+          var G__6656 = pos_n_6653 + 1;
+          pos_n_6653 = G__6656;
+          continue;
+        } else {
+        }
+        break;
+      }
+      var G__6657 = n_6635 + 1;
+      n_6635 = G__6657;
+      continue;
+    } else {
+    }
+    break;
+  }
+  var n__5161__auto___6658 = 4;
+  var n_6659 = 0;
+  while (true) {
+    if (n_6659 < n__5161__auto___6658) {
+      var number_6660 = n_6659 + 1;
+      var row_n_6661 = base_size;
+      var n__5161__auto___6662__$1 = number_6660;
+      var pos_n_6663 = 0;
+      while (true) {
+        if (pos_n_6663 < n__5161__auto___6662__$1) {
+          var rn_6664 = row_n_6661 + pos_n_6663;
+          var pn_6665 = base_size - number_6660 - (0 - pos_n_6663);
+          mandala.app.a_set.call(null, mandala__$1, rn_6664, pn_6665, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_6664 - 1, pn_6665), mandala.app.a_get.call(null, mandala__$1, rn_6664, pn_6665 + 1)));
+          var G__6666 = pos_n_6663 + 1;
+          pos_n_6663 = G__6666;
+          continue;
+        } else {
+        }
+        break;
+      }
+      var number_6667 = n_6659 + 1;
+      var row_n_6668 = base_size;
+      var n__5161__auto___6669__$1 = number_6667;
+      var pos_n_6670 = 0;
+      while (true) {
+        if (pos_n_6670 < n__5161__auto___6669__$1) {
+          var rn_6671 = row_n_6668 + pos_n_6670;
+          var pn_6672 = number_6667;
+          mandala.app.a_set.call(null, mandala__$1, rn_6671, pn_6672, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_6671 - 1, pn_6672 - 1), mandala.app.a_get.call(null, mandala__$1, rn_6671, pn_6672 - 1)));
+          var G__6673 = pos_n_6670 + 1;
+          pos_n_6670 = G__6673;
+          continue;
+        } else {
+        }
+        break;
+      }
+      var number_6674 = n_6659 + 1;
+      var row_n_6675 = size - 1 - number_6674;
+      var n__5161__auto___6676__$1 = number_6674;
+      var pos_n_6677 = 0;
+      while (true) {
+        if (pos_n_6677 < n__5161__auto___6676__$1) {
+          var rn_6678 = row_n_6675;
+          var pn_6679 = base_size - number_6674 - -pos_n_6677;
+          mandala.app.a_set.call(null, mandala__$1, rn_6678, pn_6679, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_6678 + 1, pn_6679 + 1), mandala.app.a_get.call(null, mandala__$1, rn_6678 + 1, pn_6679)));
+          var G__6680 = pos_n_6677 + 1;
+          pos_n_6677 = G__6680;
+          continue;
+        } else {
+        }
+        break;
+      }
+      var G__6681 = n_6659 + 1;
+      n_6659 = G__6681;
+      continue;
+    } else {
+    }
+    break;
+  }
+  mandala.app.a_set.call(null, mandala__$1, 10, 5, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, 10, 6), mandala.app.a_get.call(null, mandala__$1, 9, 5)));
+  var n__5161__auto___6682 = size;
+  var n_6683 = 0;
+  while (true) {
+    if (n_6683 < n__5161__auto___6682) {
+      cljs.core.assoc_BANG_.call(null, mandala__$1, n_6683, cljs.core.persistent_BANG_.call(null, cljs.core.get.call(null, mandala__$1, n_6683)));
+      var G__6684 = n_6683 + 1;
+      n_6683 = G__6684;
+      continue;
+    } else {
+    }
+    break;
+  }
+  return cljs.core.persistent_BANG_.call(null, mandala__$1);
+};
 mandala.app.output_sectors_mandala = function mandala$app$output_sectors_mandala(origin_digits, mandala__$1, sectors_number, output_selector, group_id) {
   var color_shift = origin_digits.call(null, 0);
   var mandala_size = cljs.core.count.call(null, mandala__$1);
@@ -34155,25 +34343,25 @@ mandala.app.output_sectors_mandala = function mandala$app$output_sectors_mandala
   var symbol = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "symbol");
   var defs = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "defs");
   var skew_angle = Math.tan((90 - 360 / sectors_number) / 2 * (Math.PI / 180));
-  var n__5161__auto___6625 = cljs.core.count.call(null, mandala__$1);
-  var col_index_6626 = 0;
+  var n__5161__auto___6685 = cljs.core.count.call(null, mandala__$1);
+  var col_index_6686 = 0;
   while (true) {
-    if (col_index_6626 < n__5161__auto___6625) {
-      var n__5161__auto___6627__$1 = col_index_6626 + 1;
-      var row_index_6628 = 0;
+    if (col_index_6686 < n__5161__auto___6685) {
+      var n__5161__auto___6687__$1 = col_index_6686 + 1;
+      var row_index_6688 = 0;
       while (true) {
-        if (row_index_6628 < n__5161__auto___6627__$1) {
-          dommy.core.append_BANG_.call(null, group, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), (col_index_6626 - row_index_6628) * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_6628 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, new cljs.core.Keyword(null, 
-          "fill", "fill", 883462889), cljs.core.get.call(null, mandala.app.digit_color_map, mandala.app.get_color_num_by_digit.call(null, cljs.core.get.call(null, cljs.core.get.call(null, mandala__$1, col_index_6626), row_index_6628), color_shift)), new cljs.core.Keyword(null, "stroke", "stroke", 1741823555), "black", new cljs.core.Keyword(null, "stroke-width", "stroke-width", 716836435), 1));
-          var G__6629 = row_index_6628 + 1;
-          row_index_6628 = G__6629;
+        if (row_index_6688 < n__5161__auto___6687__$1) {
+          dommy.core.append_BANG_.call(null, group, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), (col_index_6686 - row_index_6688) * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_6688 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, new cljs.core.Keyword(null, 
+          "fill", "fill", 883462889), cljs.core.get.call(null, mandala.app.digit_color_map, mandala.app.get_color_num_by_digit.call(null, cljs.core.get.call(null, cljs.core.get.call(null, mandala__$1, col_index_6686), row_index_6688), color_shift)), new cljs.core.Keyword(null, "stroke", "stroke", 1741823555), "black", new cljs.core.Keyword(null, "stroke-width", "stroke-width", 716836435), 1));
+          var G__6689 = row_index_6688 + 1;
+          row_index_6688 = G__6689;
           continue;
         } else {
         }
         break;
       }
-      var G__6630 = col_index_6626 + 1;
-      col_index_6626 = G__6630;
+      var G__6690 = col_index_6686 + 1;
+      col_index_6686 = G__6690;
       continue;
     } else {
     }
@@ -34181,14 +34369,14 @@ mandala.app.output_sectors_mandala = function mandala$app$output_sectors_mandala
   }
   dommy.core.set_attr_BANG_.call(null, group, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("matrix(1, "), cljs.core.str(skew_angle), cljs.core.str(", "), cljs.core.str(skew_angle), cljs.core.str(", 1, 0, 0)")].join(""));
   dommy.core.append_BANG_.call(null, container, dommy.core.append_BANG_.call(null, defs, symbol, dommy.core.append_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, symbol, new cljs.core.Keyword(null, "id", "id", -1388402092), group_id), group)));
-  var n__5161__auto___6631 = sectors_number;
-  var n_6632 = 0;
+  var n__5161__auto___6691 = sectors_number;
+  var n_6692 = 0;
   while (true) {
-    if (n_6632 < n__5161__auto___6631) {
+    if (n_6692 < n__5161__auto___6691) {
       dommy.core.append_BANG_.call(null, container, dommy.core.append_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "g"), new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("translate("), cljs.core.str(svg_shift), cljs.core.str(","), cljs.core.str(svg_shift), cljs.core.str(")")].join("")), dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", 
-      "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), 0, new cljs.core.Keyword(null, "y", "y", -1757859776), 0, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("rotate("), cljs.core.str(45 + 360 / sectors_number * n_6632), cljs.core.str(")")].join(""))));
-      var G__6633 = n_6632 + 1;
-      n_6632 = G__6633;
+      "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), 0, new cljs.core.Keyword(null, "y", "y", -1757859776), 0, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("rotate("), cljs.core.str(45 + 360 / sectors_number * n_6692), cljs.core.str(")")].join(""))));
+      var G__6693 = n_6692 + 1;
+      n_6692 = G__6693;
       continue;
     } else {
     }
