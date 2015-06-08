@@ -34001,7 +34001,7 @@ mandala.app.add_conv_to_length_return_steps.cljs$core$IFn$_invoke$arity$3 = func
   }
 };
 mandala.app.add_conv_to_length_return_steps.cljs$lang$maxFixedArity = 3;
-mandala.app.digit_color_map = cljs.core.PersistentHashMap.fromArrays([0, 7, 1, 4, 6, 3, 2, 9, 5, 8], ["white", "pink", "red", "yellow", "turquoise", "green", "blue", "purple", "cyan", "orange"]);
+mandala.app.digit_color_map = cljs.core.PersistentHashMap.fromArrays([0, 7, 1, 4, 6, 3, 2, 9, 5, 8], ["white", "#ff66cc", "red", "yellow", "#00cccc", "green", "blue", "purple", "#33ccff", "orange"]);
 mandala.app.get_color_num_by_digit = function mandala$app$get_color_num_by_digit(digit, shift) {
   var color_num_tmp = shift - 1 + digit;
   var color_num = cljs.core._EQ_.call(null, 0, digit) ? 0 : color_num_tmp > 9 ? color_num_tmp - 9 : color_num_tmp;
@@ -34017,13 +34017,37 @@ mandala.app.get_core_of_mandala_andrew5 = function mandala$app$get_core_of_manda
   4, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 3), base.call(null, 2), base.call(null, 3), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 4), base.call(null, 3), base.call(null, 2), base.call(null, 1), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [mandala.app.add.call(null, base.call(null, 4), base.call(null, 3)), mandala.app.add.call(null, 
   base.call(null, 3), base.call(null, 2)), mandala.app.add.call(null, base.call(null, 2), base.call(null, 3)), mandala.app.add.call(null, base.call(null, 1), base.call(null, 0)), mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)), mandala.app.add.call(null, mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)), mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)))], null)], null);
 };
+mandala.app.get_core_of_mandala_date = function mandala$app$get_core_of_mandala_date(base) {
+  return new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 0)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 1), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 2), base.call(null, 3), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 
+  4, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 3), base.call(null, 2), base.call(null, 1), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 4), base.call(null, 5), base.call(null, 2), base.call(null, 3), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 5), base.call(null, 4), base.call(null, 3), base.call(null, 2), base.call(null, 
+  1), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 6), base.call(null, 7), base.call(null, 4), base.call(null, 5), base.call(null, 2), base.call(null, 3), base.call(null, 0)], null), new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [base.call(null, 7), base.call(null, 6), base.call(null, 5), base.call(null, 4), base.call(null, 3), base.call(null, 2), base.call(null, 1), base.call(null, 
+  0)], null), new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, [mandala.app.add.call(null, base.call(null, 7), base.call(null, 6)), mandala.app.add.call(null, base.call(null, 6), base.call(null, 7)), mandala.app.add.call(null, base.call(null, 5), base.call(null, 4)), mandala.app.add.call(null, base.call(null, 4), base.call(null, 5)), mandala.app.add.call(null, base.call(null, 3), base.call(null, 2)), mandala.app.add.call(null, base.call(null, 2), base.call(null, 3)), 
+  mandala.app.add.call(null, base.call(null, 1), base.call(null, 0)), mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)), mandala.app.add.call(null, mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)), mandala.app.add.call(null, base.call(null, 0), base.call(null, 1)))], null)], null);
+};
+mandala.app.is_equal = function mandala$app$is_equal(az, bz) {
+  var a = cljs.core._EQ_.call(null, az, 0) ? 9 : az;
+  var b = cljs.core._EQ_.call(null, bz, 0) ? 9 : bz;
+  return cljs.core._EQ_.call(null, a, b);
+};
 mandala.app.mandala_andrew = function mandala$app$mandala_andrew(mandala__$1, base_number) {
   while (true) {
     var last_column_tail = cljs.core.vec.call(null, cljs.core.take_last.call(null, 2, cljs.core.last.call(null, mandala__$1)));
     var penultima_column_tail = cljs.core.last.call(null, cljs.core.first.call(null, cljs.core.take_last.call(null, 2, mandala__$1)));
     var base_first = cljs.core.get.call(null, cljs.core.first.call(null, mandala__$1), 0);
     var base_second = cljs.core.get.call(null, cljs.core.second.call(null, mandala__$1), 0);
-    if (cljs.core._EQ_.call(null, penultima_column_tail, base_first) && (cljs.core._EQ_.call(null, cljs.core.first.call(null, last_column_tail), base_second) && cljs.core._EQ_.call(null, cljs.core.last.call(null, last_column_tail), base_first))) {
+    if (cljs.core.truth_(function() {
+      var and__4264__auto__ = mandala.app.is_equal.call(null, penultima_column_tail, base_first);
+      if (cljs.core.truth_(and__4264__auto__)) {
+        var and__4264__auto____$1 = mandala.app.is_equal.call(null, cljs.core.first.call(null, last_column_tail), base_second);
+        if (cljs.core.truth_(and__4264__auto____$1)) {
+          return mandala.app.is_equal.call(null, cljs.core.last.call(null, last_column_tail), base_first);
+        } else {
+          return and__4264__auto____$1;
+        }
+      } else {
+        return and__4264__auto__;
+      }
+    }())) {
       return mandala__$1;
     } else {
       var G__6609 = function() {
@@ -34059,6 +34083,9 @@ mandala.app.mandala_andrew_4 = function mandala$app$mandala_andrew_4(base) {
 mandala.app.mandala_andrew_5 = function mandala$app$mandala_andrew_5(base) {
   return mandala.app.mandala_andrew.call(null, mandala.app.get_core_of_mandala_andrew5.call(null, base), 5);
 };
+mandala.app.mandala_andrew_date = function mandala$app$mandala_andrew_date(base) {
+  return mandala.app.mandala_andrew.call(null, mandala.app.get_core_of_mandala_date.call(null, base), 8);
+};
 mandala.app.get_mandala_cell = function mandala$app$get_mandala_cell(mandala__$1, col_index, row_index) {
   if (cljs.core.count.call(null, cljs.core.get.call(null, mandala__$1, col_index)) - 1 >= row_index) {
     return cljs.core.get.call(null, cljs.core.get.call(null, mandala__$1, col_index), row_index);
@@ -34069,7 +34096,8 @@ mandala.app.get_mandala_cell = function mandala$app$get_mandala_cell(mandala__$1
 mandala.app.output_mandala = function mandala$app$output_mandala(mandala__$1, output_selector) {
   var mandala_size = cljs.core.count.call(null, mandala__$1);
   var container = dommy.core.add_class_BANG_.call(null, dommy.core.create_element.call(null, "div"), "mandala-output");
-  var color_shift = mandala__$1.call(null, 0).call(null, 0);
+  var first_color = mandala__$1.call(null, 0).call(null, 0);
+  var color_shift = cljs.core._EQ_.call(null, first_color, 0) ? 1 : first_color;
   var n__5161__auto___6613 = mandala_size;
   var row_index_6614 = 0;
   while (true) {
@@ -34100,7 +34128,8 @@ mandala.app.output_mandala = function mandala$app$output_mandala(mandala__$1, ou
 };
 mandala.app.output_mandala_svg = function mandala$app$output_mandala_svg(mandala__$1, output_selector, group_id) {
   var mandala_size = cljs.core.count.call(null, mandala__$1);
-  var color_shift = mandala__$1.call(null, 0).call(null, 0);
+  var first_color = mandala__$1.call(null, 0).call(null, 0);
+  var color_shift = cljs.core._EQ_.call(null, first_color, 0) ? 1 : first_color;
   var cell_size = 20;
   var container = dommy.core.add_class_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "svg"), new cljs.core.Keyword(null, "width", "width", -384071477), mandala_size * cell_size * 2, new cljs.core.Keyword(null, "height", "height", 1025178622), mandala_size * cell_size * 2, new cljs.core.Keyword(null, "xmlns", "xmlns", -1862095571), "http://www.w3.org/2000/svg", new cljs.core.Keyword(null, "xmlns:xlink", "xmlns:xlink", -316591054), 
   "http://www.w3.org/1999/xlink", new cljs.core.Keyword(null, "version", "version", 425292698), "1.1"), "mandala-output");

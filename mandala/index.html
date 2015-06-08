@@ -41,6 +41,10 @@
         #outputAndrew5svg {margin: 30px}
         #outputAndrew5svgLink {margin: 30px}
 
+        #outputAndrewDate {margin: 30px}
+        #outputAndrewDateSvg {margin: 30px}
+        #outputAndrewDateSvgLink {margin: 30px}
+
     </style>
     <script type="text/javascript">
         function getLinkBySvgString(svgAsString, mandalaSuffix)
@@ -154,6 +158,45 @@
         <div id="outputAndrew5">(нажмите "Посчитать")</div>
         <div id="outputAndrew5svg" ></div>
         <div id="outputAndrew5svgLink" ></div>
+
+    <h2>На дату</h2>
+        <script type="text/javascript">
+            function countAndrewDate() {
+                var inputSeq = document.querySelector('input[name="inputAndrewDate"]').value;
+                inputSeq = '[' + inputSeq + ']';
+                var vector = mandala.app.str2clj(inputSeq);
+
+                var result = mandala.app.mandala_andrew_date(vector);
+
+                //document.querySelector('#outputAndrewDate').innerHTML = mandala.app.clj2str(result);
+                mandala.app.output_mandala(result, '#outputAndrewDate');
+                mandala.app.output_mandala_svg(result, '#outputAndrewDateSvg', 'aDateSvg-groupt');
+
+
+                $("#outputAndrewDateSvgLink").html(
+                    getLinkBySvgString($('#outputAndrewDateSvg').html(), 'date')
+                );
+
+                //tmp hack
+                [].forEach.call(
+                    document.querySelectorAll('#outputAndrewDateSvg svg use'),
+                    function (el) {
+                        el.setAttributeNS(
+                            'http://www.w3.org/1999/xlink',
+                            'href',
+                            el.getAttribute('xlink:href')
+                        );
+                    }
+                );
+            }
+        </script>
+        <div>Последовательность цифр через пробел:</div>
+        <input type="text" name="inputAndrewDate" value="1 2 3 4 5 6 7 8">
+        <input type="button" onclick="countAndrewDate()" value="Посчитать">
+        <div>Результат вычислений (последовательность столбцов с цифрами от оси до диагонали):</div>
+        <div id="outputAndrewDate">(нажмите "Посчитать")</div>
+        <div id="outputAndrewDateSvg" ></div>
+        <div id="outputAndrewDateSvgLink" ></div>
 
     <h2>N-угольная манадала (1-ый способ)</h2>
         <script type="text/javascript">
