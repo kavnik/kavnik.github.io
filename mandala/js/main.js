@@ -33957,10 +33957,10 @@ mandala.app.add_convolution = function mandala$app$add_convolution(vector) {
 mandala.app.add_conv_to_length = function mandala$app$add_conv_to_length(vector, length) {
   while (true) {
     if (cljs.core.count.call(null, vector) > length) {
-      var G__7800 = mandala.app.add_convolution.call(null, vector);
-      var G__7801 = length;
-      vector = G__7800;
-      length = G__7801;
+      var G__8281 = mandala.app.add_convolution.call(null, vector);
+      var G__8282 = length;
+      vector = G__8281;
+      length = G__8282;
       continue;
     } else {
       if (cljs.core._EQ_.call(null, cljs.core.count.call(null, vector), length)) {
@@ -33973,8 +33973,8 @@ mandala.app.add_conv_to_length = function mandala$app$add_conv_to_length(vector,
   }
 };
 mandala.app.add_conv_to_length_return_steps = function mandala$app$add_conv_to_length_return_steps() {
-  var G__7803 = arguments.length;
-  switch(G__7803) {
+  var G__8284 = arguments.length;
+  switch(G__8284) {
     case 2:
       return mandala.app.add_conv_to_length_return_steps.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
       break;
@@ -34002,6 +34002,9 @@ mandala.app.add_conv_to_length_return_steps.cljs$core$IFn$_invoke$arity$3 = func
 };
 mandala.app.add_conv_to_length_return_steps.cljs$lang$maxFixedArity = 3;
 mandala.app.digit_color_map = cljs.core.PersistentHashMap.fromArrays([0, 7, 1, 4, 6, 3, 2, 9, 5, 8], ["white", "#ff66cc", "red", "yellow", "#00cccc", "green", "blue", "purple", "#33ccff", "orange"]);
+mandala.app.get_color_code_by_num = function mandala$app$get_color_code_by_num(num) {
+  return cljs.core.get.call(null, cljs.core.js__GT_clj.call(null, window.mandalaColors), num);
+};
 mandala.app.get_color_num_by_digit = function mandala$app$get_color_num_by_digit(digit, shift) {
   var color_num_tmp = shift - 1 + digit;
   var color_num = cljs.core._EQ_.call(null, 0, digit) ? 0 : color_num_tmp > 9 ? color_num_tmp - 9 : color_num_tmp;
@@ -34050,7 +34053,7 @@ mandala.app.mandala_andrew = function mandala$app$mandala_andrew(mandala__$1, ba
     }())) {
       return mandala__$1;
     } else {
-      var G__7805 = function() {
+      var G__8286 = function() {
         var step_tail = cljs.core.take_last.call(null, 2, mandala__$1);
         return cljs.core.conj.call(null, mandala__$1, function() {
           var vToSize = mandala.app.add_two_vectors_base_parts.call(null, cljs.core.first.call(null, step_tail), cljs.core.last.call(null, step_tail), base_number);
@@ -34059,19 +34062,19 @@ mandala.app.mandala_andrew = function mandala$app$mandala_andrew(mandala__$1, ba
             if (cljs.core.count.call(null, vToSize) >= size) {
               return vToSize;
             } else {
-              var G__7807 = cljs.core.conj.call(null, vToSize, mandala.app.add.call(null, cljs.core.first.call(null, cljs.core.take_last.call(null, 2, vToSize)), cljs.core.last.call(null, vToSize)));
-              var G__7808 = size;
-              vToSize = G__7807;
-              size = G__7808;
+              var G__8288 = cljs.core.conj.call(null, vToSize, mandala.app.add.call(null, cljs.core.first.call(null, cljs.core.take_last.call(null, 2, vToSize)), cljs.core.last.call(null, vToSize)));
+              var G__8289 = size;
+              vToSize = G__8288;
+              size = G__8289;
               continue;
             }
             break;
           }
         }());
       }();
-      var G__7806 = base_number;
-      mandala__$1 = G__7805;
-      base_number = G__7806;
+      var G__8287 = base_number;
+      mandala__$1 = G__8286;
+      base_number = G__8287;
       continue;
     }
     break;
@@ -34098,27 +34101,27 @@ mandala.app.output_mandala = function mandala$app$output_mandala(mandala__$1, ou
   var container = dommy.core.add_class_BANG_.call(null, dommy.core.create_element.call(null, "div"), "mandala-output");
   var first_color = mandala__$1.call(null, 0).call(null, 0);
   var color_shift = cljs.core._EQ_.call(null, first_color, 0) ? 1 : first_color;
-  var n__5161__auto___7809 = mandala_size;
-  var row_index_7810 = 0;
+  var n__5161__auto___8290 = mandala_size;
+  var row_index_8291 = 0;
   while (true) {
-    if (row_index_7810 < n__5161__auto___7809) {
+    if (row_index_8291 < n__5161__auto___8290) {
       mandala.app.row = dommy.core.create_element.call(null, "div");
-      var n__5161__auto___7811__$1 = mandala_size;
-      var col_index_7812 = 0;
+      var n__5161__auto___8292__$1 = mandala_size;
+      var col_index_8293 = 0;
       while (true) {
-        if (col_index_7812 < n__5161__auto___7811__$1) {
-          dommy.core.add_class_BANG_.call(null, dommy.core.append_BANG_.call(null, mandala.app.row, dommy.core.add_class_BANG_.call(null, dommy.core.add_class_BANG_.call(null, dommy.core.set_text_BANG_.call(null, dommy.core.create_element.call(null, "div"), mandala.app.get_mandala_cell.call(null, mandala__$1, col_index_7812, mandala_size - 1 - row_index_7810)), "mandala-cell"), [cljs.core.str("mandala-cell-"), cljs.core.str(mandala.app.get_color_num_by_digit.call(null, mandala.app.get_mandala_cell.call(null, 
-          mandala__$1, col_index_7812, mandala_size - 1 - row_index_7810), color_shift))].join(""))), "madala-row");
-          var G__7813 = col_index_7812 + 1;
-          col_index_7812 = G__7813;
+        if (col_index_8293 < n__5161__auto___8292__$1) {
+          dommy.core.add_class_BANG_.call(null, dommy.core.append_BANG_.call(null, mandala.app.row, dommy.core.add_class_BANG_.call(null, dommy.core.add_class_BANG_.call(null, dommy.core.set_text_BANG_.call(null, dommy.core.create_element.call(null, "div"), mandala.app.get_mandala_cell.call(null, mandala__$1, col_index_8293, mandala_size - 1 - row_index_8291)), "mandala-cell"), [cljs.core.str("mandala-cell-"), cljs.core.str(mandala.app.get_color_num_by_digit.call(null, mandala.app.get_mandala_cell.call(null, 
+          mandala__$1, col_index_8293, mandala_size - 1 - row_index_8291), color_shift))].join(""))), "madala-row");
+          var G__8294 = col_index_8293 + 1;
+          col_index_8293 = G__8294;
           continue;
         } else {
         }
         break;
       }
       dommy.core.append_BANG_.call(null, container, mandala.app.row);
-      var G__7814 = row_index_7810 + 1;
-      row_index_7810 = G__7814;
+      var G__8295 = row_index_8291 + 1;
+      row_index_8291 = G__8295;
       continue;
     } else {
     }
@@ -34136,25 +34139,25 @@ mandala.app.output_mandala_svg = function mandala$app$output_mandala_svg(mandala
   var group = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "g");
   var symbol = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "symbol");
   var defs = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "defs");
-  var n__5161__auto___7815 = mandala_size;
-  var row_index_7816 = 0;
+  var n__5161__auto___8296 = mandala_size;
+  var row_index_8297 = 0;
   while (true) {
-    if (row_index_7816 < n__5161__auto___7815) {
-      var n__5161__auto___7817__$1 = mandala_size;
-      var col_index_7818 = 0;
+    if (row_index_8297 < n__5161__auto___8296) {
+      var n__5161__auto___8298__$1 = mandala_size;
+      var col_index_8299 = 0;
       while (true) {
-        if (col_index_7818 < n__5161__auto___7817__$1) {
-          dommy.core.append_BANG_.call(null, group, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), col_index_7818 * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_7816 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, new cljs.core.Keyword(null, "fill", 
-          "fill", 883462889), cljs.core.get.call(null, mandala.app.digit_color_map, mandala.app.get_color_num_by_digit.call(null, mandala.app.get_mandala_cell.call(null, mandala__$1, col_index_7818, mandala_size - 1 - row_index_7816), color_shift))));
-          var G__7819 = col_index_7818 + 1;
-          col_index_7818 = G__7819;
+        if (col_index_8299 < n__5161__auto___8298__$1) {
+          dommy.core.append_BANG_.call(null, group, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), col_index_8299 * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_8297 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, new cljs.core.Keyword(null, "fill", 
+          "fill", 883462889), mandala.app.get_color_code_by_num.call(null, mandala.app.get_color_num_by_digit.call(null, mandala.app.get_mandala_cell.call(null, mandala__$1, col_index_8299, mandala_size - 1 - row_index_8297), color_shift))));
+          var G__8300 = col_index_8299 + 1;
+          col_index_8299 = G__8300;
           continue;
         } else {
         }
         break;
       }
-      var G__7820 = row_index_7816 + 1;
-      row_index_7816 = G__7820;
+      var G__8301 = row_index_8297 + 1;
+      row_index_8297 = G__8301;
       continue;
     } else {
     }
@@ -34183,20 +34186,20 @@ mandala.app.mandala_sectors_2 = function mandala$app$mandala_sectors_2(base) {
   var base_size = 8;
   var size = 2 * base_size;
   var mandala__$1 = cljs.core.transient$.call(null, cljs.core.PersistentVector.EMPTY);
-  var n__5161__auto___7821 = size;
-  var n_7822 = 0;
+  var n__5161__auto___8302 = size;
+  var n_8303 = 0;
   while (true) {
-    if (n_7822 < n__5161__auto___7821) {
-      cljs.core.assoc_BANG_.call(null, mandala__$1, n_7822, function() {
+    if (n_8303 < n__5161__auto___8302) {
+      cljs.core.assoc_BANG_.call(null, mandala__$1, n_8303, function() {
         var row = cljs.core.transient$.call(null, cljs.core.PersistentVector.EMPTY);
-        var row_size = n_7822 + 1;
-        var n__5161__auto___7823__$1 = row_size;
-        var row_n_7824 = 0;
+        var row_size = n_8303 + 1;
+        var n__5161__auto___8304__$1 = row_size;
+        var row_n_8305 = 0;
         while (true) {
-          if (row_n_7824 < n__5161__auto___7823__$1) {
-            cljs.core.assoc_BANG_.call(null, row, row_n_7824, 0);
-            var G__7825 = row_n_7824 + 1;
-            row_n_7824 = G__7825;
+          if (row_n_8305 < n__5161__auto___8304__$1) {
+            cljs.core.assoc_BANG_.call(null, row, row_n_8305, 0);
+            var G__8306 = row_n_8305 + 1;
+            row_n_8305 = G__8306;
             continue;
           } else {
           }
@@ -34204,156 +34207,156 @@ mandala.app.mandala_sectors_2 = function mandala$app$mandala_sectors_2(base) {
         }
         return row;
       }());
-      var G__7826 = n_7822 + 1;
-      n_7822 = G__7826;
+      var G__8307 = n_8303 + 1;
+      n_8303 = G__8307;
       continue;
     } else {
     }
     break;
   }
-  var n__5161__auto___7827 = base_size;
-  var n_7828 = 0;
+  var n__5161__auto___8308 = base_size;
+  var n_8309 = 0;
   while (true) {
-    if (n_7828 < n__5161__auto___7827) {
-      mandala.app.a_set.call(null, mandala__$1, n_7828, 0, cljs.core.get.call(null, base, n_7828));
-      mandala.app.a_set.call(null, mandala__$1, n_7828, n_7828, cljs.core.get.call(null, base, n_7828));
-      mandala.app.a_set.call(null, mandala__$1, size - 1 - n_7828, 0, cljs.core.get.call(null, base, n_7828));
-      mandala.app.a_set.call(null, mandala__$1, size - 1 - n_7828, size - 1 - n_7828, cljs.core.get.call(null, base, n_7828));
-      mandala.app.a_set.call(null, mandala__$1, size - 1, n_7828, cljs.core.get.call(null, base, n_7828));
-      mandala.app.a_set.call(null, mandala__$1, size - 1, size - 1 - n_7828, cljs.core.get.call(null, base, n_7828));
-      var G__7829 = n_7828 + 1;
-      n_7828 = G__7829;
+    if (n_8309 < n__5161__auto___8308) {
+      mandala.app.a_set.call(null, mandala__$1, n_8309, 0, cljs.core.get.call(null, base, n_8309));
+      mandala.app.a_set.call(null, mandala__$1, n_8309, n_8309, cljs.core.get.call(null, base, n_8309));
+      mandala.app.a_set.call(null, mandala__$1, size - 1 - n_8309, 0, cljs.core.get.call(null, base, n_8309));
+      mandala.app.a_set.call(null, mandala__$1, size - 1 - n_8309, size - 1 - n_8309, cljs.core.get.call(null, base, n_8309));
+      mandala.app.a_set.call(null, mandala__$1, size - 1, n_8309, cljs.core.get.call(null, base, n_8309));
+      mandala.app.a_set.call(null, mandala__$1, size - 1, size - 1 - n_8309, cljs.core.get.call(null, base, n_8309));
+      var G__8310 = n_8309 + 1;
+      n_8309 = G__8310;
       continue;
     } else {
     }
     break;
   }
-  var n__5161__auto___7830 = base_size - 2;
-  var n_7831 = 0;
+  var n__5161__auto___8311 = base_size - 2;
+  var n_8312 = 0;
   while (true) {
-    if (n_7831 < n__5161__auto___7830) {
-      var number_7832 = n_7831 + 1;
-      var row_n_7833 = n_7831 + 2;
-      var n__5161__auto___7834__$1 = number_7832;
-      var pos_n_7835 = 0;
+    if (n_8312 < n__5161__auto___8311) {
+      var number_8313 = n_8312 + 1;
+      var row_n_8314 = n_8312 + 2;
+      var n__5161__auto___8315__$1 = number_8313;
+      var pos_n_8316 = 0;
       while (true) {
-        if (pos_n_7835 < n__5161__auto___7834__$1) {
-          var rn_7836 = row_n_7833;
-          var pn_7837 = 1 + pos_n_7835;
-          mandala.app.a_set.call(null, mandala__$1, rn_7836, pn_7837, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_7836 - 1, pn_7837), mandala.app.a_get.call(null, mandala__$1, rn_7836 - 1, pn_7837 - 1)));
-          var G__7838 = pos_n_7835 + 1;
-          pos_n_7835 = G__7838;
+        if (pos_n_8316 < n__5161__auto___8315__$1) {
+          var rn_8317 = row_n_8314;
+          var pn_8318 = 1 + pos_n_8316;
+          mandala.app.a_set.call(null, mandala__$1, rn_8317, pn_8318, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_8317 - 1, pn_8318), mandala.app.a_get.call(null, mandala__$1, rn_8317 - 1, pn_8318 - 1)));
+          var G__8319 = pos_n_8316 + 1;
+          pos_n_8316 = G__8319;
           continue;
         } else {
         }
         break;
       }
-      var number_7839 = n_7831 + 1;
-      var row_n_7840 = size - (1 + 1 + n_7831);
-      var n__5161__auto___7841__$1 = number_7839;
-      var pos_n_7842 = 0;
+      var number_8320 = n_8312 + 1;
+      var row_n_8321 = size - (1 + 1 + n_8312);
+      var n__5161__auto___8322__$1 = number_8320;
+      var pos_n_8323 = 0;
       while (true) {
-        if (pos_n_7842 < n__5161__auto___7841__$1) {
-          var rn_7843 = row_n_7840 + pos_n_7842;
-          var pn_7844 = 1 + pos_n_7842;
-          mandala.app.a_set.call(null, mandala__$1, rn_7843, pn_7844, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_7843, pn_7844 - 1), mandala.app.a_get.call(null, mandala__$1, rn_7843 + 1, pn_7844)));
-          var G__7845 = pos_n_7842 + 1;
-          pos_n_7842 = G__7845;
+        if (pos_n_8323 < n__5161__auto___8322__$1) {
+          var rn_8324 = row_n_8321 + pos_n_8323;
+          var pn_8325 = 1 + pos_n_8323;
+          mandala.app.a_set.call(null, mandala__$1, rn_8324, pn_8325, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_8324, pn_8325 - 1), mandala.app.a_get.call(null, mandala__$1, rn_8324 + 1, pn_8325)));
+          var G__8326 = pos_n_8323 + 1;
+          pos_n_8323 = G__8326;
           continue;
         } else {
         }
         break;
       }
-      var number_7846 = n_7831 + 1;
-      var row_n_7847 = size - (1 + 1 + n_7831);
-      var n__5161__auto___7848__$1 = number_7846;
-      var pos_n_7849 = 0;
+      var number_8327 = n_8312 + 1;
+      var row_n_8328 = size - (1 + 1 + n_8312);
+      var n__5161__auto___8329__$1 = number_8327;
+      var pos_n_8330 = 0;
       while (true) {
-        if (pos_n_7849 < n__5161__auto___7848__$1) {
-          var rn_7850 = row_n_7847 + pos_n_7849;
-          var pn_7851 = size - (2 + number_7846);
-          mandala.app.a_set.call(null, mandala__$1, rn_7850, pn_7851, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_7850, pn_7851 + 1), mandala.app.a_get.call(null, mandala__$1, rn_7850 + 1, pn_7851 + 1)));
-          var G__7852 = pos_n_7849 + 1;
-          pos_n_7849 = G__7852;
+        if (pos_n_8330 < n__5161__auto___8329__$1) {
+          var rn_8331 = row_n_8328 + pos_n_8330;
+          var pn_8332 = size - (2 + number_8327);
+          mandala.app.a_set.call(null, mandala__$1, rn_8331, pn_8332, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_8331, pn_8332 + 1), mandala.app.a_get.call(null, mandala__$1, rn_8331 + 1, pn_8332 + 1)));
+          var G__8333 = pos_n_8330 + 1;
+          pos_n_8330 = G__8333;
           continue;
         } else {
         }
         break;
       }
-      var G__7853 = n_7831 + 1;
-      n_7831 = G__7853;
+      var G__8334 = n_8312 + 1;
+      n_8312 = G__8334;
       continue;
     } else {
     }
     break;
   }
-  var n__5161__auto___7854 = 4;
-  var n_7855 = 0;
+  var n__5161__auto___8335 = 4;
+  var n_8336 = 0;
   while (true) {
-    if (n_7855 < n__5161__auto___7854) {
-      var number_7856 = n_7855 + 1;
-      var row_n_7857 = base_size;
-      var n__5161__auto___7858__$1 = number_7856;
-      var pos_n_7859 = 0;
+    if (n_8336 < n__5161__auto___8335) {
+      var number_8337 = n_8336 + 1;
+      var row_n_8338 = base_size;
+      var n__5161__auto___8339__$1 = number_8337;
+      var pos_n_8340 = 0;
       while (true) {
-        if (pos_n_7859 < n__5161__auto___7858__$1) {
-          var rn_7860 = row_n_7857 + pos_n_7859;
-          var pn_7861 = base_size - number_7856 - (0 - pos_n_7859);
-          mandala.app.a_set.call(null, mandala__$1, rn_7860, pn_7861, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_7860 - 1, pn_7861), mandala.app.a_get.call(null, mandala__$1, rn_7860, pn_7861 + 1)));
-          var G__7862 = pos_n_7859 + 1;
-          pos_n_7859 = G__7862;
+        if (pos_n_8340 < n__5161__auto___8339__$1) {
+          var rn_8341 = row_n_8338 + pos_n_8340;
+          var pn_8342 = base_size - number_8337 - (0 - pos_n_8340);
+          mandala.app.a_set.call(null, mandala__$1, rn_8341, pn_8342, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_8341 - 1, pn_8342), mandala.app.a_get.call(null, mandala__$1, rn_8341, pn_8342 + 1)));
+          var G__8343 = pos_n_8340 + 1;
+          pos_n_8340 = G__8343;
           continue;
         } else {
         }
         break;
       }
-      var number_7863 = n_7855 + 1;
-      var row_n_7864 = base_size;
-      var n__5161__auto___7865__$1 = number_7863;
-      var pos_n_7866 = 0;
+      var number_8344 = n_8336 + 1;
+      var row_n_8345 = base_size;
+      var n__5161__auto___8346__$1 = number_8344;
+      var pos_n_8347 = 0;
       while (true) {
-        if (pos_n_7866 < n__5161__auto___7865__$1) {
-          var rn_7867 = row_n_7864 + pos_n_7866;
-          var pn_7868 = number_7863;
-          mandala.app.a_set.call(null, mandala__$1, rn_7867, pn_7868, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_7867 - 1, pn_7868 - 1), mandala.app.a_get.call(null, mandala__$1, rn_7867, pn_7868 - 1)));
-          var G__7869 = pos_n_7866 + 1;
-          pos_n_7866 = G__7869;
+        if (pos_n_8347 < n__5161__auto___8346__$1) {
+          var rn_8348 = row_n_8345 + pos_n_8347;
+          var pn_8349 = number_8344;
+          mandala.app.a_set.call(null, mandala__$1, rn_8348, pn_8349, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_8348 - 1, pn_8349 - 1), mandala.app.a_get.call(null, mandala__$1, rn_8348, pn_8349 - 1)));
+          var G__8350 = pos_n_8347 + 1;
+          pos_n_8347 = G__8350;
           continue;
         } else {
         }
         break;
       }
-      var number_7870 = n_7855 + 1;
-      var row_n_7871 = size - 1 - number_7870;
-      var n__5161__auto___7872__$1 = number_7870;
-      var pos_n_7873 = 0;
+      var number_8351 = n_8336 + 1;
+      var row_n_8352 = size - 1 - number_8351;
+      var n__5161__auto___8353__$1 = number_8351;
+      var pos_n_8354 = 0;
       while (true) {
-        if (pos_n_7873 < n__5161__auto___7872__$1) {
-          var rn_7874 = row_n_7871;
-          var pn_7875 = base_size - number_7870 - -pos_n_7873;
-          mandala.app.a_set.call(null, mandala__$1, rn_7874, pn_7875, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_7874 + 1, pn_7875 + 1), mandala.app.a_get.call(null, mandala__$1, rn_7874 + 1, pn_7875)));
-          var G__7876 = pos_n_7873 + 1;
-          pos_n_7873 = G__7876;
+        if (pos_n_8354 < n__5161__auto___8353__$1) {
+          var rn_8355 = row_n_8352;
+          var pn_8356 = base_size - number_8351 - -pos_n_8354;
+          mandala.app.a_set.call(null, mandala__$1, rn_8355, pn_8356, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, rn_8355 + 1, pn_8356 + 1), mandala.app.a_get.call(null, mandala__$1, rn_8355 + 1, pn_8356)));
+          var G__8357 = pos_n_8354 + 1;
+          pos_n_8354 = G__8357;
           continue;
         } else {
         }
         break;
       }
-      var G__7877 = n_7855 + 1;
-      n_7855 = G__7877;
+      var G__8358 = n_8336 + 1;
+      n_8336 = G__8358;
       continue;
     } else {
     }
     break;
   }
   mandala.app.a_set.call(null, mandala__$1, 10, 5, mandala.app.add.call(null, mandala.app.a_get.call(null, mandala__$1, 10, 6), mandala.app.a_get.call(null, mandala__$1, 9, 5)));
-  var n__5161__auto___7878 = size;
-  var n_7879 = 0;
+  var n__5161__auto___8359 = size;
+  var n_8360 = 0;
   while (true) {
-    if (n_7879 < n__5161__auto___7878) {
-      cljs.core.assoc_BANG_.call(null, mandala__$1, n_7879, cljs.core.persistent_BANG_.call(null, cljs.core.get.call(null, mandala__$1, n_7879)));
-      var G__7880 = n_7879 + 1;
-      n_7879 = G__7880;
+    if (n_8360 < n__5161__auto___8359) {
+      cljs.core.assoc_BANG_.call(null, mandala__$1, n_8360, cljs.core.persistent_BANG_.call(null, cljs.core.get.call(null, mandala__$1, n_8360)));
+      var G__8361 = n_8360 + 1;
+      n_8360 = G__8361;
       continue;
     } else {
     }
@@ -34372,25 +34375,25 @@ mandala.app.output_sectors_mandala = function mandala$app$output_sectors_mandala
   var symbol = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "symbol");
   var defs = dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "defs");
   var skew_angle = Math.tan((90 - 360 / sectors_number) / 2 * (Math.PI / 180));
-  var n__5161__auto___7881 = cljs.core.count.call(null, mandala__$1);
-  var col_index_7882 = 0;
+  var n__5161__auto___8362 = cljs.core.count.call(null, mandala__$1);
+  var col_index_8363 = 0;
   while (true) {
-    if (col_index_7882 < n__5161__auto___7881) {
-      var n__5161__auto___7883__$1 = col_index_7882 + 1;
-      var row_index_7884 = 0;
+    if (col_index_8363 < n__5161__auto___8362) {
+      var n__5161__auto___8364__$1 = col_index_8363 + 1;
+      var row_index_8365 = 0;
       while (true) {
-        if (row_index_7884 < n__5161__auto___7883__$1) {
-          dommy.core.append_BANG_.call(null, group, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), (col_index_7882 - row_index_7884) * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_7884 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, new cljs.core.Keyword(null, 
-          "fill", "fill", 883462889), cljs.core.get.call(null, mandala.app.digit_color_map, mandala.app.get_color_num_by_digit.call(null, cljs.core.get.call(null, cljs.core.get.call(null, mandala__$1, col_index_7882), row_index_7884), color_shift))));
-          var G__7885 = row_index_7884 + 1;
-          row_index_7884 = G__7885;
+        if (row_index_8365 < n__5161__auto___8364__$1) {
+          dommy.core.append_BANG_.call(null, group, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "rect"), new cljs.core.Keyword(null, "x", "x", 2099068185), (col_index_8363 - row_index_8365) * cell_size, new cljs.core.Keyword(null, "y", "y", -1757859776), row_index_8365 * cell_size, new cljs.core.Keyword(null, "width", "width", -384071477), cell_size, new cljs.core.Keyword(null, "height", "height", 1025178622), cell_size, new cljs.core.Keyword(null, 
+          "fill", "fill", 883462889), mandala.app.get_color_code_by_num.call(null, mandala.app.get_color_num_by_digit.call(null, cljs.core.get.call(null, cljs.core.get.call(null, mandala__$1, col_index_8363), row_index_8365), color_shift))));
+          var G__8366 = row_index_8365 + 1;
+          row_index_8365 = G__8366;
           continue;
         } else {
         }
         break;
       }
-      var G__7886 = col_index_7882 + 1;
-      col_index_7882 = G__7886;
+      var G__8367 = col_index_8363 + 1;
+      col_index_8363 = G__8367;
       continue;
     } else {
     }
@@ -34398,14 +34401,14 @@ mandala.app.output_sectors_mandala = function mandala$app$output_sectors_mandala
   }
   dommy.core.set_attr_BANG_.call(null, group, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("matrix(1, "), cljs.core.str(skew_angle), cljs.core.str(", "), cljs.core.str(skew_angle), cljs.core.str(", 1, 0, 0)")].join(""));
   dommy.core.append_BANG_.call(null, container, dommy.core.append_BANG_.call(null, defs, symbol, dommy.core.append_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, symbol, new cljs.core.Keyword(null, "id", "id", -1388402092), group_id), group)));
-  var n__5161__auto___7887 = sectors_number;
-  var n_7888 = 0;
+  var n__5161__auto___8368 = sectors_number;
+  var n_8369 = 0;
   while (true) {
-    if (n_7888 < n__5161__auto___7887) {
+    if (n_8369 < n__5161__auto___8368) {
       dommy.core.append_BANG_.call(null, container, dommy.core.append_BANG_.call(null, dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", "g"), new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("translate("), cljs.core.str(svg_shift), cljs.core.str(","), cljs.core.str(svg_shift), cljs.core.str(")")].join("")), dommy.core.set_attr_BANG_.call(null, dommy.core.create_element.call(null, "http://www.w3.org/2000/svg", 
-      "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), 0, new cljs.core.Keyword(null, "y", "y", -1757859776), 0, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("rotate("), cljs.core.str(45 + 360 / sectors_number * n_7888), cljs.core.str(")")].join(""))));
-      var G__7889 = n_7888 + 1;
-      n_7888 = G__7889;
+      "use"), new cljs.core.Keyword(null, "xlink:href", "xlink:href", 828777205), [cljs.core.str("#"), cljs.core.str(group_id)].join(""), new cljs.core.Keyword(null, "x", "x", 2099068185), 0, new cljs.core.Keyword(null, "y", "y", -1757859776), 0, new cljs.core.Keyword(null, "transform", "transform", 1381301764), [cljs.core.str("rotate("), cljs.core.str(45 + 360 / sectors_number * n_8369), cljs.core.str(")")].join(""))));
+      var G__8370 = n_8369 + 1;
+      n_8369 = G__8370;
       continue;
     } else {
     }
