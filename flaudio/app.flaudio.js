@@ -24795,7 +24795,7 @@ var ProgressWithControls = function (_super) {
             _this.setInterval(_this.convertViewportXToRel(x), _this.mouseDragInterval.end);
         };
         _this.setIntervalOnIntervalEndMove = function (x) {
-            _this.setInterval(_this.mouseDragInterval.end, _this.convertViewportXToRel(x));
+            _this.setInterval(_this.mouseDragInterval.begin, _this.convertViewportXToRel(x));
         };
         _this.resetIntervalExternal = function () {
             _this.setInterval(null, null);
@@ -25130,7 +25130,7 @@ var PronunciationPage_1 = __webpack_require__(222);
 PlayerManager_1.playerManager.init();
 //use browserHistory instead hashHistory to dispose of # in urls
 var history = react_router_redux_1.syncHistoryWithStore(react_router_1.hashHistory, store_1.store);
-ReactDOM.render(React.createElement(react_redux_1.Provider, { store: store_1.store }, React.createElement(react_router_1.Router, { history: history }, React.createElement(react_router_1.Route, { path: "/", component: AppComponent_1.default }, React.createElement(react_router_1.Redirect, { from: '/test/redirect', to: '/subtitles/999' }), React.createElement(react_router_1.IndexRedirect, { to: "home" }), React.createElement(react_router_1.Route, { path: PageUrlManager_1.homeUrlTemplate, component: HomePage_1.default }), React.createElement(react_router_1.Route, { path: PageUrlManager_1.tracksUrlTemplate, component: TracksPage_1.TracksPage }), React.createElement(react_router_1.Route, { path: PageUrlManager_1.pronunciationUrl, component: PronunciationPage_1.PronunciationPage }), React.createElement(react_router_1.Route, { path: "/subtitles", component: SubtitlePage_1.SubtitlePage }, React.createElement(react_router_1.Route, { path: ":id", component: SubtitlePage_1.SubtitlePage })), React.createElement(react_router_1.Route, { path: PageUrlManager_1.trackWorkshopUrlTemplate, component: TrackWorkshopPage_1.TrackWorkshopPage }), React.createElement(react_router_1.Route, { path: "*", component: NotFoundPage_1.default })))), document.getElementById("app-container"));
+ReactDOM.render(React.createElement(react_redux_1.Provider, { store: store_1.store }, React.createElement(react_router_1.Router, { history: history }, React.createElement(react_router_1.Route, { path: "/", component: AppComponent_1.default }, React.createElement(react_router_1.Redirect, { from: '/test/redirect', to: '/subtitles/999' }), React.createElement(react_router_1.IndexRedirect, { to: PageUrlManager_1.pronunciationUrl }), React.createElement(react_router_1.Route, { path: PageUrlManager_1.homeUrlTemplate, component: HomePage_1.default }), React.createElement(react_router_1.Route, { path: PageUrlManager_1.tracksUrlTemplate, component: TracksPage_1.TracksPage }), React.createElement(react_router_1.Route, { path: PageUrlManager_1.pronunciationUrl, component: PronunciationPage_1.PronunciationPage }), React.createElement(react_router_1.Route, { path: "/subtitles", component: SubtitlePage_1.SubtitlePage }, React.createElement(react_router_1.Route, { path: ":id", component: SubtitlePage_1.SubtitlePage })), React.createElement(react_router_1.Route, { path: PageUrlManager_1.trackWorkshopUrlTemplate, component: TrackWorkshopPage_1.TrackWorkshopPage }), React.createElement(react_router_1.Route, { path: "*", component: NotFoundPage_1.default })))), document.getElementById("app-container"));
 window["app"] = {
     foo: function () {
         console.log("foo-hey-ho!");
