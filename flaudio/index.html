@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>flaudio</title>
+
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+    <div id="app-container"></div>
+
+    <script type="text/javascript">
+        navigator.getUserMedia = navigator.getUserMedia
+            || navigator.webkitGetUserMedia
+            || navigator.mozGetUserMedia;
+    </script>
+
+    <script src="yandex-audio.js" type="text/javascript"></script>
+    <script src="pixi.min.js" type="text/javascript"></script>
+    <script src="app.flaudio.js" type="text/javascript"></script>
+</body>
+
+</html>
