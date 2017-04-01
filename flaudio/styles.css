@@ -22,7 +22,19 @@ body {
     display: block;
     position: relative;
     width: 100%;
-    height: 140px;
+}
+
+.player .zoom_controls {
+    float: right;
+}
+
+.player .top_controls {
+    overflow: hidden;
+}
+
+.controls_zoom_dec,
+.controls_zoom_inc {
+    width: 30px;
 }
 
 .overlay {
@@ -46,7 +58,8 @@ body {
 
 button {
     height: 30px;
-    padding: 5px 10px;
+    line-height: 30px;
+    padding: 0 10px;
     background: #fff;
     border: 1px #aaa solid;
     cursor: pointer;
@@ -55,14 +68,53 @@ button {
     margin-right: 1px;
 }
 
-.controls_play:hover {
-    border-color: #666;
+.player .play_current_controls span,
+.player .play_interval_controls span,
+.player .play_position_controls span {
+    height: 30px;
+    line-height: 30px;
 }
 
-.player_playing .controls_play {
+.player .play_current_controls .controls_title,
+.player .play_interval_controls .controls_title,
+.player .play_position_controls .controls_title {
+    display: inline-block;
+    width: 80px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.player .play_current_controls .controls_title {
+    color: #6397C3;
+}
+
+.player .play_position_controls .controls_title {
+    color: #8AA659;
+}
+
+.player .play_interval_controls .buttons,
+.player .play_position_controls .buttons {
+    display: inline-block;
+}
+
+.player .play_interval_controls button,
+.player .play_position_controls button {
+    width: 70px;
+    margin-right: 10px;
+}
+
+.controls_play {
+    width: 150px;
+}
+
+.player.paused .controls_play {
     border-color: #328c3a;
     background: #5bb586;
     color: #FFFFFF;
+}
+
+.controls_play:hover {
+    border-color: #666;
 }
 
 .progress {
